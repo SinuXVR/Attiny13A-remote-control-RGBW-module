@@ -1,6 +1,6 @@
 # Attiny13A based remote control RGBW module: spectrum version
 
-[See full description in master branch](Attiny13A-remote-control-RGBW-module/tree/master)
+[See full description in master branch](https://github.com/SinuXVR/Attiny13A-remote-control-RGBW-module)
 
 ### What's the difference?
 
