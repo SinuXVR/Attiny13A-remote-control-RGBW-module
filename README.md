@@ -12,6 +12,7 @@
 * Power ON/OFF feature
 * Power consumption in OFF mode is less than 0.8mA (depends on IR receiver)
 * Supply voltage: 3V to 6V (single Li-ion, 3xLR06, USB)
+* Size: 920 bytes (if you need more space, [check 860 byte version](https://github.com/SinuXVR/Attiny13A-remote-control-RGBW-module/tree/spectrum))
 
 # Remote controller
 
