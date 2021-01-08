@@ -1,0 +1,826 @@
+
+Attiny_IR_RGBW.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  00000394  00000428  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000000b  00800064  00800064  0000042c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000042c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000045c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000040  00000000  00000000  00000498  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000992  00000000  00000000  000004d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000004ed  00000000  00000000  00000e6a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000474  00000000  00000000  00001357  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000080  00000000  00000000  000017cc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000496  00000000  00000000  0000184c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000003ed  00000000  00000000  00001ce2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000060  00000000  00000000  000020cf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	29 c0       	rjmp	.+82     	; 0x54 <__ctors_end>
+   2:	41 c0       	rjmp	.+130    	; 0x86 <__bad_interrupt>
+   4:	41 c0       	rjmp	.+130    	; 0x88 <__vector_2>
+   6:	3f c0       	rjmp	.+126    	; 0x86 <__bad_interrupt>
+   8:	3e c0       	rjmp	.+124    	; 0x86 <__bad_interrupt>
+   a:	3d c0       	rjmp	.+122    	; 0x86 <__bad_interrupt>
+   c:	3c c0       	rjmp	.+120    	; 0x86 <__bad_interrupt>
+   e:	3b c0       	rjmp	.+118    	; 0x86 <__bad_interrupt>
+  10:	3a c0       	rjmp	.+116    	; 0x86 <__bad_interrupt>
+  12:	39 c0       	rjmp	.+114    	; 0x86 <__bad_interrupt>
+
+00000014 <__trampolines_end>:
+  14:	d0 00       	.word	0x00d0	; ????
+  16:	00 00       	nop
+  18:	90 64       	ori	r25, 0x40	; 64
+  1a:	00 00       	nop
+  1c:	b0 64       	ori	r27, 0x40	; 64
+  1e:	0c 00       	.word	0x000c	; ????
+  20:	a8 64       	ori	r26, 0x48	; 72
+  22:	19 00       	.word	0x0019	; ????
+  24:	98 64       	ori	r25, 0x48	; 72
+  26:	32 00       	.word	0x0032	; ????
+  28:	88 64       	ori	r24, 0x48	; 72
+  2a:	64 00       	.word	0x0064	; ????
+  2c:	10 00       	.word	0x0010	; ????
+  2e:	64 00       	.word	0x0064	; ????
+  30:	30 00       	.word	0x0030	; ????
+  32:	64 0c       	add	r6, r4
+  34:	28 00       	.word	0x0028	; ????
+  36:	64 19       	sub	r22, r4
+  38:	18 00       	.word	0x0018	; ????
+  3a:	64 32       	cpi	r22, 0x24	; 36
+  3c:	08 00       	.word	0x0008	; ????
+  3e:	64 64       	ori	r22, 0x44	; 68
+  40:	50 00       	.word	0x0050	; ????
+  42:	00 64       	ori	r16, 0x40	; 64
+  44:	70 0c       	add	r7, r0
+  46:	00 64       	ori	r16, 0x40	; 64
+  48:	68 19       	sub	r22, r8
+  4a:	00 64       	ori	r16, 0x40	; 64
+  4c:	58 32       	cpi	r21, 0x28	; 40
+  4e:	00 64       	ori	r16, 0x40	; 64
+  50:	48 64       	ori	r20, 0x48	; 72
+  52:	00 64       	ori	r16, 0x40	; 64
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e9       	ldi	r28, 0x9F	; 159
+  5a:	cd bf       	out	0x3d, r28	; 61
+
+0000005c <__do_copy_data>:
+  5c:	10 e0       	ldi	r17, 0x00	; 0
+  5e:	a0 e6       	ldi	r26, 0x60	; 96
+  60:	b0 e0       	ldi	r27, 0x00	; 0
+  62:	e4 e9       	ldi	r30, 0x94	; 148
+  64:	f3 e0       	ldi	r31, 0x03	; 3
+  66:	02 c0       	rjmp	.+4      	; 0x6c <__do_copy_data+0x10>
+  68:	05 90       	lpm	r0, Z+
+  6a:	0d 92       	st	X+, r0
+  6c:	a4 36       	cpi	r26, 0x64	; 100
+  6e:	b1 07       	cpc	r27, r17
+  70:	d9 f7       	brne	.-10     	; 0x68 <__do_copy_data+0xc>
+
+00000072 <__do_clear_bss>:
+  72:	20 e0       	ldi	r18, 0x00	; 0
+  74:	a4 e6       	ldi	r26, 0x64	; 100
+  76:	b0 e0       	ldi	r27, 0x00	; 0
+  78:	01 c0       	rjmp	.+2      	; 0x7c <.do_clear_bss_start>
+
+0000007a <.do_clear_bss_loop>:
+  7a:	1d 92       	st	X+, r1
+
+0000007c <.do_clear_bss_start>:
+  7c:	af 36       	cpi	r26, 0x6F	; 111
+  7e:	b2 07       	cpc	r27, r18
+  80:	e1 f7       	brne	.-8      	; 0x7a <.do_clear_bss_loop>
+  82:	93 d0       	rcall	.+294    	; 0x1aa <main>
+  84:	85 c1       	rjmp	.+778    	; 0x390 <_exit>
+
+00000086 <__bad_interrupt>:
+  86:	bc cf       	rjmp	.-136    	; 0x0 <__vectors>
+
+00000088 <__vector_2>:
+}
+
+/**
+ * PCINT0 interrupt from IR_SENSOR_PIN - decode data
+ */
+ISR (PCINT0_vect) {
+  88:	1f 92       	push	r1
+  8a:	0f 92       	push	r0
+  8c:	0f b6       	in	r0, 0x3f	; 63
+  8e:	0f 92       	push	r0
+  90:	11 24       	eor	r1, r1
+  92:	2f 93       	push	r18
+  94:	8f 93       	push	r24
+  96:	9f 93       	push	r25
+	static byte bit_counter;
+	static word data_buffer;
+	
+	// Consider only falling edge
+	if (PINB & (1 << IR_SENSOR_PIN)) return;
+  98:	b4 99       	sbic	0x16, 4	; 22
+  9a:	36 c0       	rjmp	.+108    	; 0x108 <__stack+0x69>
+	
+	// Buffer current timer counter value and reset it
+	byte timer_counter = ir_timer_counter;
+  9c:	22 b7       	in	r18, 0x32	; 50
+	ir_reset_timer_counter();
+  9e:	81 e0       	ldi	r24, 0x01	; 1
+  a0:	82 bf       	out	0x32, r24	; 50
+	
+	// Start of new data
+	if (ir_timer_has_overflow()) {
+  a2:	08 b6       	in	r0, 0x38	; 56
+  a4:	01 fe       	sbrs	r0, 1
+  a6:	05 c0       	rjmp	.+10     	; 0xb2 <__stack+0x13>
+		bit_counter = 0;
+  a8:	10 92 66 00 	sts	0x0066, r1	; 0x800066 <bit_counter.1775>
+		timer_counter = 0;
+		ir_reset_timer_overflow();
+  ac:	82 e0       	ldi	r24, 0x02	; 2
+  ae:	88 bf       	out	0x38, r24	; 56
+		return;
+  b0:	2b c0       	rjmp	.+86     	; 0x108 <__stack+0x69>
+	}
+	
+	// Ignore start sequence
+	if (timer_counter >= IR_START_SEQ_TICKS) return;
+  b2:	20 34       	cpi	r18, 0x40	; 64
+  b4:	48 f5       	brcc	.+82     	; 0x108 <__stack+0x69>
+
+	// Set next bit to high or low
+	data_buffer <<= 1;
+  b6:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__data_end>
+  ba:	90 91 65 00 	lds	r25, 0x0065	; 0x800065 <__data_end+0x1>
+  be:	88 0f       	add	r24, r24
+  c0:	99 1f       	adc	r25, r25
+	if (timer_counter >= IR_HIGH_BIT_TICKS) data_buffer |= 1;
+  c2:	20 32       	cpi	r18, 0x20	; 32
+  c4:	08 f0       	brcs	.+2      	; 0xc8 <__stack+0x29>
+  c6:	81 60       	ori	r24, 0x01	; 1
+  c8:	90 93 65 00 	sts	0x0065, r25	; 0x800065 <__data_end+0x1>
+  cc:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
+	bit_counter++;
+  d0:	90 91 66 00 	lds	r25, 0x0066	; 0x800066 <bit_counter.1775>
+  d4:	9f 5f       	subi	r25, 0xFF	; 255
+  d6:	90 93 66 00 	sts	0x0066, r25	; 0x800066 <bit_counter.1775>
+	
+	// Current high and low byte values of data
+	byte data_high_byte = data_buffer >> 8;
+  da:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__data_end>
+  de:	20 91 65 00 	lds	r18, 0x0065	; 0x800065 <__data_end+0x1>
+	byte data_low_byte = ~data_buffer;
+  e2:	80 95       	com	r24
+	
+	// End of address
+	#ifdef IR_VALIDATE_ADDRESS
+		// Cancel reception if address isn't correct
+		if (bit_counter == 16) {
+  e4:	90 31       	cpi	r25, 0x10	; 16
+  e6:	19 f4       	brne	.+6      	; 0xee <__stack+0x4f>
+			if (data_high_byte != data_low_byte) {
+  e8:	28 13       	cpse	r18, r24
+				bit_counter = 0;
+  ea:	10 92 66 00 	sts	0x0066, r1	; 0x800066 <bit_counter.1775>
+			}
+	}
+	#endif
+	
+	// End of data
+	if (bit_counter == 32) {
+  ee:	90 91 66 00 	lds	r25, 0x0066	; 0x800066 <bit_counter.1775>
+  f2:	90 32       	cpi	r25, 0x20	; 32
+  f4:	49 f4       	brne	.+18     	; 0x108 <__stack+0x69>
+		// Validate and save received command
+		if (data_high_byte == data_low_byte) {
+  f6:	28 13       	cpse	r18, r24
+  f8:	05 c0       	rjmp	.+10     	; 0x104 <__stack+0x65>
+			ir_received_command = data_high_byte;
+  fa:	20 93 6e 00 	sts	0x006E, r18	; 0x80006e <ir_received_command>
+			has_new_command = 1;
+  fe:	81 e0       	ldi	r24, 0x01	; 1
+ 100:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <has_new_command>
+		}
+		ir_overflow_timer();
+ 104:	8f ef       	ldi	r24, 0xFF	; 255
+ 106:	82 bf       	out	0x32, r24	; 50
+	}
+	
+	
+}
+ 108:	9f 91       	pop	r25
+ 10a:	8f 91       	pop	r24
+ 10c:	2f 91       	pop	r18
+ 10e:	0f 90       	pop	r0
+ 110:	0f be       	out	0x3f, r0	; 63
+ 112:	0f 90       	pop	r0
+ 114:	1f 90       	pop	r1
+ 116:	18 95       	reti
+
+00000118 <anim_set_brightness>:
+
+/**
+ * Apply current brightness value
+ */
+extern void anim_set_brightness(byte val) {
+	r_current_value = r_value * val >> 8;
+ 118:	28 2f       	mov	r18, r24
+ 11a:	30 e0       	ldi	r19, 0x00	; 0
+ 11c:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <r_value>
+ 120:	90 e0       	ldi	r25, 0x00	; 0
+ 122:	b9 01       	movw	r22, r18
+ 124:	24 d1       	rcall	.+584    	; 0x36e <__mulhi3>
+ 126:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <r_current_value>
+	g_current_value = g_value * val >> 8;
+ 12a:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <g_value>
+ 12e:	90 e0       	ldi	r25, 0x00	; 0
+ 130:	b9 01       	movw	r22, r18
+ 132:	1d d1       	rcall	.+570    	; 0x36e <__mulhi3>
+ 134:	90 93 68 00 	sts	0x0068, r25	; 0x800068 <g_current_value>
+	b_current_value = b_value * val >> 8;
+ 138:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <b_value>
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	b9 01       	movw	r22, r18
+ 140:	16 d1       	rcall	.+556    	; 0x36e <__mulhi3>
+ 142:	90 93 67 00 	sts	0x0067, r25	; 0x800067 <b_current_value>
+	w_current_value = w_value * val >> 8;
+ 146:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <w_value>
+ 14a:	90 e0       	ldi	r25, 0x00	; 0
+ 14c:	b9 01       	movw	r22, r18
+ 14e:	0f d1       	rcall	.+542    	; 0x36e <__mulhi3>
+ 150:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <w_current_value>
+ 154:	08 95       	ret
+
+00000156 <anim_set_color_by_index>:
+
+/**
+ * Set color from array by given index
+ */
+extern void anim_set_color_by_index(byte index) {
+	w_value = index == 0 ? W_MAX_VALUE : 0;
+ 156:	88 23       	and	r24, r24
+ 158:	11 f0       	breq	.+4      	; 0x15e <anim_set_color_by_index+0x8>
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	01 c0       	rjmp	.+2      	; 0x160 <anim_set_color_by_index+0xa>
+ 15e:	94 e6       	ldi	r25, 0x64	; 100
+ 160:	90 93 62 00 	sts	0x0062, r25	; 0x800062 <w_value>
+	r_value = pgm_read_byte(&colors[index][1]);
+ 164:	90 e0       	ldi	r25, 0x00	; 0
+ 166:	88 0f       	add	r24, r24
+ 168:	99 1f       	adc	r25, r25
+ 16a:	88 0f       	add	r24, r24
+ 16c:	99 1f       	adc	r25, r25
+ 16e:	fc 01       	movw	r30, r24
+ 170:	eb 5e       	subi	r30, 0xEB	; 235
+ 172:	ff 4f       	sbci	r31, 0xFF	; 255
+ 174:	e4 91       	lpm	r30, Z
+ 176:	e0 93 6c 00 	sts	0x006C, r30	; 0x80006c <r_value>
+	g_value = pgm_read_byte(&colors[index][2]);
+ 17a:	fc 01       	movw	r30, r24
+ 17c:	ea 5e       	subi	r30, 0xEA	; 234
+ 17e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 180:	e4 91       	lpm	r30, Z
+ 182:	e0 93 6b 00 	sts	0x006B, r30	; 0x80006b <g_value>
+	b_value = pgm_read_byte(&colors[index][3]);
+ 186:	fc 01       	movw	r30, r24
+ 188:	e9 5e       	subi	r30, 0xE9	; 233
+ 18a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 18c:	84 91       	lpm	r24, Z
+ 18e:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <b_value>
+ 192:	08 95       	ret
+
+00000194 <anim_set_next_color>:
+/**
+ * Set next non-white color
+ */
+extern void anim_set_next_color() {
+	static byte color = 1;
+	if (++color >= COLORS_COUNT) color = 1; // Skip white color
+ 194:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__data_start>
+ 198:	8f 5f       	subi	r24, 0xFF	; 255
+ 19a:	80 31       	cpi	r24, 0x10	; 16
+ 19c:	08 f0       	brcs	.+2      	; 0x1a0 <anim_set_next_color+0xc>
+ 19e:	81 e0       	ldi	r24, 0x01	; 1
+ 1a0:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
+	anim_set_color_by_index(color);
+ 1a4:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__data_start>
+ 1a8:	d6 cf       	rjmp	.-84     	; 0x156 <anim_set_color_by_index>
+
+000001aa <main>:
+#include "lib/animation.h"
+
+// Entry point
+int main(void) {
+	// Set up
+	power_off_init();
+ 1aa:	85 b7       	in	r24, 0x35	; 53
+ 1ac:	87 7e       	andi	r24, 0xE7	; 231
+ 1ae:	80 61       	ori	r24, 0x10	; 16
+ 1b0:	85 bf       	out	0x35, r24	; 53
+ 1b2:	85 b7       	in	r24, 0x35	; 53
+ 1b4:	80 62       	ori	r24, 0x20	; 32
+ 1b6:	85 bf       	out	0x35, r24	; 53
+	pwm_init_rgbw();
+ 1b8:	87 b3       	in	r24, 0x17	; 23
+ 1ba:	8f 60       	ori	r24, 0x0F	; 15
+ 1bc:	87 bb       	out	0x17, r24	; 23
+/**
+ * Set up interrupts for IR receiver
+ */
+static void ir_init() {
+	// Enable timer in normal mode with prescaler 256
+	ir_enable_timer();
+ 1be:	84 e0       	ldi	r24, 0x04	; 4
+ 1c0:	83 bf       	out	0x33, r24	; 51
+	
+	// Enable PCIE interrupt on IR_SENSOR_PIN
+	GIMSK |= (1 << PCIE);
+ 1c2:	8b b7       	in	r24, 0x3b	; 59
+ 1c4:	80 62       	ori	r24, 0x20	; 32
+ 1c6:	8b bf       	out	0x3b, r24	; 59
+	PCMSK |= (1 << IR_SENSOR_PIN);
+ 1c8:	ac 9a       	sbi	0x15, 4	; 21
+	
+	// Enable global interrupts
+	sei();
+ 1ca:	78 94       	sei
+	
+	// Animation and brightness parameters
+	byte anim_rate = ANIM_RATE_INITIAL_VALUE;
+	byte anim_counter = 0;
+	byte anim_local_counter = 0;
+	byte brightness = BRIGHTNESS_INITIAL_VALUE;
+ 1cc:	df ef       	ldi	r29, 0xFF	; 255
+	byte current_state = INITIAL_STATE;
+	
+	// Animation and brightness parameters
+	byte anim_rate = ANIM_RATE_INITIAL_VALUE;
+	byte anim_counter = 0;
+	byte anim_local_counter = 0;
+ 1ce:	00 e0       	ldi	r16, 0x00	; 0
+	// Set initial state
+	byte current_state = INITIAL_STATE;
+	
+	// Animation and brightness parameters
+	byte anim_rate = ANIM_RATE_INITIAL_VALUE;
+	byte anim_counter = 0;
+ 1d0:	f1 2c       	mov	r15, r1
+	
+	// Set initial state
+	byte current_state = INITIAL_STATE;
+	
+	// Animation and brightness parameters
+	byte anim_rate = ANIM_RATE_INITIAL_VALUE;
+ 1d2:	10 e2       	ldi	r17, 0x20	; 32
+	power_off_init();
+	pwm_init_rgbw();
+	ir_init();
+	
+	// Set initial state
+	byte current_state = INITIAL_STATE;
+ 1d4:	c0 e0       	ldi	r28, 0x00	; 0
+
+/**
+ * Check if new data exists
+ */
+static byte ir_has_new_command() {
+	return has_new_command;
+ 1d6:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <has_new_command>
+	byte brightness = BRIGHTNESS_INITIAL_VALUE;
+	
+	// Main loop
+	while(1) {
+		// Check if new command was received and change state
+		if (ir_has_new_command()) {
+ 1da:	88 23       	and	r24, r24
+ 1dc:	09 f4       	brne	.+2      	; 0x1e0 <main+0x36>
+ 1de:	4e c0       	rjmp	.+156    	; 0x27c <main+0xd2>
+
+/**
+ * Return last received data
+ */
+static byte ir_get_received_command() {
+	has_new_command = 0;
+ 1e0:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <has_new_command>
+	return ir_received_command;
+ 1e4:	90 91 6e 00 	lds	r25, 0x006E	; 0x80006e <ir_received_command>
+			byte command = ir_get_received_command();
+
+			// Power on and power off
+			if (command == IR_KEY_POWER_ON) {
+ 1e8:	90 3e       	cpi	r25, 0xE0	; 224
+ 1ea:	11 f4       	brne	.+4      	; 0x1f0 <main+0x46>
+				clear_power_off_bit(current_state);
+ 1ec:	cf 77       	andi	r28, 0x7F	; 127
+				continue;
+ 1ee:	f3 cf       	rjmp	.-26     	; 0x1d6 <main+0x2c>
+			}
+			if (command == IR_KEY_POWER_OFF) {
+ 1f0:	90 36       	cpi	r25, 0x60	; 96
+ 1f2:	11 f4       	brne	.+4      	; 0x1f8 <main+0x4e>
+				set_power_off_bit(current_state);
+ 1f4:	c0 68       	ori	r28, 0x80	; 128
+				continue;
+ 1f6:	ef cf       	rjmp	.-34     	; 0x1d6 <main+0x2c>
+			}
+			
+			// Ignore other commands during sleep
+			if (has_power_off_bit(current_state)) continue;
+ 1f8:	c7 fd       	sbrc	r28, 7
+ 1fa:	ed cf       	rjmp	.-38     	; 0x1d6 <main+0x2c>
+			
+			// Change brightness or animation speed depending on current mode
+			if (command == IR_KEY_UP) {
+ 1fc:	90 3a       	cpi	r25, 0xA0	; 160
+ 1fe:	61 f4       	brne	.+24     	; 0x218 <main+0x6e>
+				if (current_state == STATE_COLOR) {
+ 200:	c1 11       	cpse	r28, r1
+ 202:	06 c0       	rjmp	.+12     	; 0x210 <main+0x66>
+
+/**
+ * Increase and apply brightness value
+ */
+static inline byte anim_inc_brightness(byte brightness) {
+	if (brightness <= BRIGHTNESS_MAX_VALUE / 2) brightness <<= 1;
+ 204:	d7 fd       	sbrc	r29, 7
+ 206:	02 c0       	rjmp	.+4      	; 0x20c <main+0x62>
+ 208:	dd 0f       	add	r29, r29
+ 20a:	0f c0       	rjmp	.+30     	; 0x22a <main+0x80>
+	else brightness = BRIGHTNESS_MAX_VALUE;
+ 20c:	df ef       	ldi	r29, 0xFF	; 255
+ 20e:	0d c0       	rjmp	.+26     	; 0x22a <main+0x80>
+
+/**
+ * Decrease animation rate (increase speed)
+ */
+static inline byte anim_dec_rate(byte anim_rate) {
+	if (anim_rate >= ANIM_RATE_MIN_VALUE * 2) return anim_rate >> 1;
+ 210:	11 30       	cpi	r17, 0x01	; 1
+ 212:	09 f3       	breq	.-62     	; 0x1d6 <main+0x2c>
+ 214:	16 95       	lsr	r17
+ 216:	df cf       	rjmp	.-66     	; 0x1d6 <main+0x2c>
+				else {
+					anim_rate = anim_dec_rate(anim_rate);
+				}
+				continue;
+			}
+			if (command == IR_KEY_DOWN) {
+ 218:	90 32       	cpi	r25, 0x20	; 32
+ 21a:	81 f4       	brne	.+32     	; 0x23c <main+0x92>
+				if (current_state == STATE_COLOR) {
+ 21c:	c1 11       	cpse	r28, r1
+ 21e:	08 c0       	rjmp	.+16     	; 0x230 <main+0x86>
+
+/**
+ * Decrease and apply brightness value
+ */
+static inline byte anim_dec_brightness(byte brightness) {
+	if (brightness >= BRIGHTNESS_MIN_VALUE * 2) brightness >>= 1;
+ 220:	d0 32       	cpi	r29, 0x20	; 32
+ 222:	10 f0       	brcs	.+4      	; 0x228 <main+0x7e>
+ 224:	d6 95       	lsr	r29
+ 226:	01 c0       	rjmp	.+2      	; 0x22a <main+0x80>
+	else brightness = BRIGHTNESS_MIN_VALUE;
+ 228:	d0 e1       	ldi	r29, 0x10	; 16
+	anim_set_brightness(brightness);
+ 22a:	8d 2f       	mov	r24, r29
+ 22c:	75 df       	rcall	.-278    	; 0x118 <anim_set_brightness>
+ 22e:	d3 cf       	rjmp	.-90     	; 0x1d6 <main+0x2c>
+
+/**
+ * Increase animation rate (decrease speed)
+ */
+static inline byte anim_inc_rate(byte anim_rate) {
+	if (anim_rate <= ANIM_RATE_MAX_VALUE / 2) return anim_rate << 1;
+ 230:	17 ff       	sbrs	r17, 7
+ 232:	02 c0       	rjmp	.+4      	; 0x238 <main+0x8e>
+	return ANIM_RATE_MAX_VALUE;
+ 234:	1f ef       	ldi	r17, 0xFF	; 255
+ 236:	cf cf       	rjmp	.-98     	; 0x1d6 <main+0x2c>
+
+/**
+ * Increase animation rate (decrease speed)
+ */
+static inline byte anim_inc_rate(byte anim_rate) {
+	if (anim_rate <= ANIM_RATE_MAX_VALUE / 2) return anim_rate << 1;
+ 238:	11 0f       	add	r17, r17
+ 23a:	cd cf       	rjmp	.-102    	; 0x1d6 <main+0x2c>
+				}
+				continue;
+			}
+			
+			// Change animation modes
+			if (command == IR_KEY_ANIM_RAINBOW) {
+ 23c:	98 3c       	cpi	r25, 0xC8	; 200
+ 23e:	21 f4       	brne	.+8      	; 0x248 <main+0x9e>
+				current_state = STATE_RAINBOW_ANIMATION;
+				w_current_value = 0;
+ 240:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <w_current_value>
+				continue;
+			}
+			
+			// Change animation modes
+			if (command == IR_KEY_ANIM_RAINBOW) {
+				current_state = STATE_RAINBOW_ANIMATION;
+ 244:	c1 e0       	ldi	r28, 0x01	; 1
+				w_current_value = 0;
+				continue;
+ 246:	c7 cf       	rjmp	.-114    	; 0x1d6 <main+0x2c>
+			}
+			if (command == IR_KEY_ANIM_JUMP) {
+ 248:	90 3f       	cpi	r25, 0xF0	; 240
+ 24a:	11 f4       	brne	.+4      	; 0x250 <main+0xa6>
+				current_state = STATE_JUMP_ANIMATION;
+ 24c:	c2 e0       	ldi	r28, 0x02	; 2
+ 24e:	c3 cf       	rjmp	.-122    	; 0x1d6 <main+0x2c>
+				continue;
+			}
+			if (command == IR_KEY_ANIM_FADE) {
+ 250:	98 3d       	cpi	r25, 0xD8	; 216
+ 252:	11 f4       	brne	.+4      	; 0x258 <main+0xae>
+				current_state = STATE_FADE_ANIMATION;
+ 254:	c3 e0       	ldi	r28, 0x03	; 3
+ 256:	bf cf       	rjmp	.-130    	; 0x1d6 <main+0x2c>
+				continue;
+			}
+			if (command == IR_KEY_ANIM_STROBE) {
+ 258:	98 3e       	cpi	r25, 0xE8	; 232
+ 25a:	09 f4       	brne	.+2      	; 0x25e <main+0xb4>
+				current_state = STATE_STROBE_ANIMATION;
+ 25c:	c4 e0       	ldi	r28, 0x04	; 4
+ 25e:	e4 e1       	ldi	r30, 0x14	; 20
+ 260:	f0 e0       	ldi	r31, 0x00	; 0
+ * Search color by given key and set it as current
+ * Returns 1 if color was changed, otherwise - 0
+ */
+static inline byte anim_set_color_by_key(byte key) {
+	byte i;
+	for (i = 0; i < COLORS_COUNT; i++) {
+ 262:	80 e0       	ldi	r24, 0x00	; 0
+		if (pgm_read_byte(&colors[i][0]) == key) {
+ 264:	24 91       	lpm	r18, Z
+ 266:	92 13       	cpse	r25, r18
+ 268:	05 c0       	rjmp	.+10     	; 0x274 <main+0xca>
+			anim_set_color_by_index(i);
+ 26a:	75 df       	rcall	.-278    	; 0x156 <anim_set_color_by_index>
+			}
+			
+			// Otherwise try to set color value
+			if (anim_set_color_by_key(command)) {
+				current_state = STATE_COLOR;
+				anim_set_brightness(brightness);
+ 26c:	8d 2f       	mov	r24, r29
+ 26e:	54 df       	rcall	.-344    	; 0x118 <anim_set_brightness>
+				// continue;
+			}
+			
+			// Otherwise try to set color value
+			if (anim_set_color_by_key(command)) {
+				current_state = STATE_COLOR;
+ 270:	c0 e0       	ldi	r28, 0x00	; 0
+ 272:	0c c0       	rjmp	.+24     	; 0x28c <main+0xe2>
+ * Search color by given key and set it as current
+ * Returns 1 if color was changed, otherwise - 0
+ */
+static inline byte anim_set_color_by_key(byte key) {
+	byte i;
+	for (i = 0; i < COLORS_COUNT; i++) {
+ 274:	8f 5f       	subi	r24, 0xFF	; 255
+ 276:	34 96       	adiw	r30, 0x04	; 4
+ 278:	80 31       	cpi	r24, 0x10	; 16
+ 27a:	a1 f7       	brne	.-24     	; 0x264 <main+0xba>
+				anim_set_brightness(brightness);
+			}
+		}
+		
+		// If IR_KEY_POWER_OFF has been pressed - disable all outputs and go to sleep
+		if (has_power_off_bit(current_state)) {
+ 27c:	c7 ff       	sbrs	r28, 7
+ 27e:	06 c0       	rjmp	.+12     	; 0x28c <main+0xe2>
+			if (ir_is_idle_state()) power_off();
+ 280:	08 b6       	in	r0, 0x38	; 56
+ 282:	01 fe       	sbrs	r0, 1
+ 284:	a8 cf       	rjmp	.-176    	; 0x1d6 <main+0x2c>
+ 286:	18 ba       	out	0x18, r1	; 24
+ 288:	88 95       	sleep
+ 28a:	a5 cf       	rjmp	.-182    	; 0x1d6 <main+0x2c>
+			continue;
+		}
+		
+		// Calculate animation step
+		if (++anim_counter >= anim_rate) {
+ 28c:	f3 94       	inc	r15
+ 28e:	f1 16       	cp	r15, r17
+ 290:	08 f4       	brcc	.+2      	; 0x294 <main+0xea>
+ 292:	49 c0       	rjmp	.+146    	; 0x326 <main+0x17c>
+			if (current_state == STATE_JUMP_ANIMATION) anim_jump(anim_local_counter); else
+ 294:	c2 30       	cpi	r28, 0x02	; 2
+ 296:	29 f4       	brne	.+10     	; 0x2a2 <main+0xf8>
+
+/**
+ * All colors jump animation
+ */
+static inline void anim_jump(byte counter) {
+	if (counter == 0) {
+ 298:	01 11       	cpse	r16, r1
+ 29a:	43 c0       	rjmp	.+134    	; 0x322 <main+0x178>
+		anim_set_next_color();
+ 29c:	7b df       	rcall	.-266    	; 0x194 <anim_set_next_color>
+		anim_set_brightness(BRIGHTNESS_MAX_VALUE);
+ 29e:	8f ef       	ldi	r24, 0xFF	; 255
+ 2a0:	0e c0       	rjmp	.+28     	; 0x2be <main+0x114>
+			if (current_state == STATE_FADE_ANIMATION) anim_fade(anim_local_counter); else
+ 2a2:	c3 30       	cpi	r28, 0x03	; 3
+ 2a4:	41 f4       	brne	.+16     	; 0x2b6 <main+0x10c>
+
+/**
+ * Current color fade animation
+ */
+static inline void anim_fade(byte counter) {
+	anim_set_brightness(counter <= BRIGHTNESS_MAX_VALUE / 2 ? counter * 2 : ~counter * 2);
+ 2a6:	80 2f       	mov	r24, r16
+ 2a8:	07 ff       	sbrs	r16, 7
+ 2aa:	03 c0       	rjmp	.+6      	; 0x2b2 <main+0x108>
+ 2ac:	90 e0       	ldi	r25, 0x00	; 0
+ 2ae:	80 95       	com	r24
+ 2b0:	90 95       	com	r25
+ 2b2:	88 0f       	add	r24, r24
+ 2b4:	04 c0       	rjmp	.+8      	; 0x2be <main+0x114>
+			if (current_state == STATE_STROBE_ANIMATION) anim_strobe(anim_local_counter); else
+ 2b6:	c4 30       	cpi	r28, 0x04	; 4
+ 2b8:	21 f4       	brne	.+8      	; 0x2c2 <main+0x118>
+
+/**
+ * Current color strobe animation
+ */
+static inline void anim_strobe(byte counter) {
+	anim_set_brightness(counter >> 7 << 7);
+ 2ba:	80 2f       	mov	r24, r16
+ 2bc:	80 78       	andi	r24, 0x80	; 128
+ 2be:	2c df       	rcall	.-424    	; 0x118 <anim_set_brightness>
+ 2c0:	30 c0       	rjmp	.+96     	; 0x322 <main+0x178>
+			if (current_state == STATE_RAINBOW_ANIMATION) anim_rainbow();
+ 2c2:	c1 30       	cpi	r28, 0x01	; 1
+ 2c4:	71 f5       	brne	.+92     	; 0x322 <main+0x178>
+/**
+ * Rainbow fade animation
+ */
+static inline void anim_rainbow() {
+	byte finished = 1;
+	if (r_value > r_current_value) { r_current_value++; finished = 0; } else
+ 2c6:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <r_value>
+ 2ca:	80 91 69 00 	lds	r24, 0x0069	; 0x800069 <r_current_value>
+ 2ce:	89 17       	cp	r24, r25
+ 2d0:	10 f4       	brcc	.+4      	; 0x2d6 <main+0x12c>
+ 2d2:	8f 5f       	subi	r24, 0xFF	; 255
+ 2d4:	03 c0       	rjmp	.+6      	; 0x2dc <main+0x132>
+	if (r_value < r_current_value) { r_current_value--; finished = 0; }
+ 2d6:	98 17       	cp	r25, r24
+ 2d8:	28 f4       	brcc	.+10     	; 0x2e4 <main+0x13a>
+ 2da:	81 50       	subi	r24, 0x01	; 1
+ 2dc:	80 93 69 00 	sts	0x0069, r24	; 0x800069 <r_current_value>
+ 2e0:	90 e0       	ldi	r25, 0x00	; 0
+ 2e2:	01 c0       	rjmp	.+2      	; 0x2e6 <main+0x13c>
+
+/**
+ * Rainbow fade animation
+ */
+static inline void anim_rainbow() {
+	byte finished = 1;
+ 2e4:	91 e0       	ldi	r25, 0x01	; 1
+	if (r_value > r_current_value) { r_current_value++; finished = 0; } else
+	if (r_value < r_current_value) { r_current_value--; finished = 0; }
+	if (g_value > g_current_value) { g_current_value++; finished = 0; } else
+ 2e6:	20 91 6b 00 	lds	r18, 0x006B	; 0x80006b <g_value>
+ 2ea:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <g_current_value>
+ 2ee:	82 17       	cp	r24, r18
+ 2f0:	10 f4       	brcc	.+4      	; 0x2f6 <main+0x14c>
+ 2f2:	8f 5f       	subi	r24, 0xFF	; 255
+ 2f4:	03 c0       	rjmp	.+6      	; 0x2fc <main+0x152>
+	if (g_value < g_current_value) { g_current_value--; finished = 0; }
+ 2f6:	28 17       	cp	r18, r24
+ 2f8:	20 f4       	brcc	.+8      	; 0x302 <main+0x158>
+ 2fa:	81 50       	subi	r24, 0x01	; 1
+ 2fc:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <g_current_value>
+ 300:	90 e0       	ldi	r25, 0x00	; 0
+	if (b_value > b_current_value) { b_current_value++; finished = 0; } else
+ 302:	20 91 6a 00 	lds	r18, 0x006A	; 0x80006a <b_value>
+ 306:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <b_current_value>
+ 30a:	82 17       	cp	r24, r18
+ 30c:	10 f4       	brcc	.+4      	; 0x312 <main+0x168>
+ 30e:	8f 5f       	subi	r24, 0xFF	; 255
+ 310:	03 c0       	rjmp	.+6      	; 0x318 <main+0x16e>
+	if (b_value < b_current_value) { b_current_value--; finished = 0; }
+ 312:	28 17       	cp	r18, r24
+ 314:	20 f4       	brcc	.+8      	; 0x31e <main+0x174>
+ 316:	81 50       	subi	r24, 0x01	; 1
+ 318:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <b_current_value>
+ 31c:	02 c0       	rjmp	.+4      	; 0x322 <main+0x178>
+	if (finished) anim_set_next_color();
+ 31e:	91 11       	cpse	r25, r1
+ 320:	39 df       	rcall	.-398    	; 0x194 <anim_set_next_color>
+			anim_local_counter++;
+ 322:	0f 5f       	subi	r16, 0xFF	; 255
+			anim_counter = 0;
+ 324:	f1 2c       	mov	r15, r1
+		}
+		
+		// Do PWM
+		pwm_rgbw(r_current_value, g_current_value, b_current_value, w_current_value);
+ 326:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <w_current_value>
+ 32a:	20 91 67 00 	lds	r18, 0x0067	; 0x800067 <b_current_value>
+ 32e:	30 91 68 00 	lds	r19, 0x0068	; 0x800068 <g_current_value>
+ 332:	40 91 69 00 	lds	r20, 0x0069	; 0x800069 <r_current_value>
+/**
+ * Software PWM for RGBW
+ */
+#ifdef WHITE_PIN
+static inline void pwm_rgbw(byte r_value, byte g_value, byte b_value, byte w_value) {
+	if (r_value != PWM_MAX_VALUE) output_low(RED_PIN);
+ 336:	44 36       	cpi	r20, 0x64	; 100
+ 338:	09 f0       	breq	.+2      	; 0x33c <main+0x192>
+ 33a:	c1 98       	cbi	0x18, 1	; 24
+	if (g_value != PWM_MAX_VALUE) output_low(GREEN_PIN);
+ 33c:	34 36       	cpi	r19, 0x64	; 100
+ 33e:	09 f0       	breq	.+2      	; 0x342 <main+0x198>
+ 340:	c2 98       	cbi	0x18, 2	; 24
+	if (b_value != PWM_MAX_VALUE) output_low(BLUE_PIN);
+ 342:	24 36       	cpi	r18, 0x64	; 100
+ 344:	09 f0       	breq	.+2      	; 0x348 <main+0x19e>
+ 346:	c0 98       	cbi	0x18, 0	; 24
+	if (w_value != PWM_MAX_VALUE) output_low(WHITE_PIN);
+ 348:	94 36       	cpi	r25, 0x64	; 100
+ 34a:	09 f0       	breq	.+2      	; 0x34e <main+0x1a4>
+ 34c:	c3 98       	cbi	0x18, 3	; 24
+			if (current_state == STATE_JUMP_ANIMATION) anim_jump(anim_local_counter); else
+			if (current_state == STATE_FADE_ANIMATION) anim_fade(anim_local_counter); else
+			if (current_state == STATE_STROBE_ANIMATION) anim_strobe(anim_local_counter); else
+			if (current_state == STATE_RAINBOW_ANIMATION) anim_rainbow();
+			anim_local_counter++;
+			anim_counter = 0;
+ 34e:	84 e6       	ldi	r24, 0x64	; 100
+	byte i = PWM_MAX_VALUE;
+	do {
+		if (i == r_value) output_high(RED_PIN);
+ 350:	48 13       	cpse	r20, r24
+ 352:	01 c0       	rjmp	.+2      	; 0x356 <main+0x1ac>
+ 354:	c1 9a       	sbi	0x18, 1	; 24
+		if (i == g_value) output_high(GREEN_PIN);
+ 356:	38 13       	cpse	r19, r24
+ 358:	01 c0       	rjmp	.+2      	; 0x35c <main+0x1b2>
+ 35a:	c2 9a       	sbi	0x18, 2	; 24
+		if (i == b_value) output_high(BLUE_PIN);
+ 35c:	28 13       	cpse	r18, r24
+ 35e:	01 c0       	rjmp	.+2      	; 0x362 <main+0x1b8>
+ 360:	c0 9a       	sbi	0x18, 0	; 24
+		if (i == w_value) output_high(WHITE_PIN);
+ 362:	98 13       	cpse	r25, r24
+ 364:	01 c0       	rjmp	.+2      	; 0x368 <main+0x1be>
+ 366:	c3 9a       	sbi	0x18, 3	; 24
+	} while (--i);
+ 368:	81 50       	subi	r24, 0x01	; 1
+ 36a:	91 f7       	brne	.-28     	; 0x350 <main+0x1a6>
+ 36c:	34 cf       	rjmp	.-408    	; 0x1d6 <main+0x2c>
+
+0000036e <__mulhi3>:
+ 36e:	00 24       	eor	r0, r0
+ 370:	55 27       	eor	r21, r21
+ 372:	04 c0       	rjmp	.+8      	; 0x37c <__mulhi3+0xe>
+ 374:	08 0e       	add	r0, r24
+ 376:	59 1f       	adc	r21, r25
+ 378:	88 0f       	add	r24, r24
+ 37a:	99 1f       	adc	r25, r25
+ 37c:	00 97       	sbiw	r24, 0x00	; 0
+ 37e:	29 f0       	breq	.+10     	; 0x38a <__mulhi3+0x1c>
+ 380:	76 95       	lsr	r23
+ 382:	67 95       	ror	r22
+ 384:	b8 f3       	brcs	.-18     	; 0x374 <__mulhi3+0x6>
+ 386:	71 05       	cpc	r23, r1
+ 388:	b9 f7       	brne	.-18     	; 0x378 <__mulhi3+0xa>
+ 38a:	80 2d       	mov	r24, r0
+ 38c:	95 2f       	mov	r25, r21
+ 38e:	08 95       	ret
+
+00000390 <_exit>:
+ 390:	f8 94       	cli
+
+00000392 <__stop_program>:
+ 392:	ff cf       	rjmp	.-2      	; 0x392 <__stop_program>
