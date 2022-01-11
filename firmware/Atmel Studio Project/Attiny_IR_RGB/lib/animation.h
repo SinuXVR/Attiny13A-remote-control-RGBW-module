@@ -12,16 +12,14 @@
 #include "common.h"
 
 // Main color values
-static byte r_value = 0;
+static byte r_value = R_MAX_VALUE;
 static byte g_value = 0;
 static byte b_value = 0;
-static byte w_value = W_MAX_VALUE;
 	
 // Current color values
-static byte r_current_value = 0;
+static byte r_current_value = R_MAX_VALUE;
 static byte g_current_value = 0;
 static byte b_current_value = 0;
-static byte w_current_value = W_MAX_VALUE;
 
 /* ==================================== Control methods ============================================= */
 
@@ -32,7 +30,6 @@ extern void anim_set_brightness(byte val) {
 	r_current_value = r_value * val >> 8;
 	g_current_value = g_value * val >> 8;
 	b_current_value = b_value * val >> 8;
-	w_current_value = w_value * val >> 8;
 }
 
 /**
@@ -75,7 +72,6 @@ static inline byte anim_dec_rate(byte anim_rate) {
  * Set color from array by given index
  */
 extern void anim_set_color_by_index(byte index) {
-	w_value = index == 0 ? W_MAX_VALUE : 0;
 	r_value = pgm_read_byte(&colors[index][1]);
 	g_value = pgm_read_byte(&colors[index][2]);
 	b_value = pgm_read_byte(&colors[index][3]);
@@ -101,7 +97,7 @@ static inline byte anim_set_color_by_key(byte key) {
  */
 extern void anim_set_next_color() {
 	static byte color = 1;
-	if (++color >= COLORS_COUNT) color = 1; // Skip white color
+	if (++color >= COLORS_COUNT) color = 1;
 	anim_set_color_by_index(color);
 }
 

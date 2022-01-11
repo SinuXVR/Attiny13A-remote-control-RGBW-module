@@ -1,8 +1,8 @@
 /*
  * Common definitions
  *
+ * Created: 06.09.2018 18:31:57
  *  Author: SinuX
- *  License: CC BY-NC-SA
  */ 
 
 #ifndef COMMON_H_
@@ -82,7 +82,6 @@
 #define R_MAX_VALUE PWM_MAX_VALUE
 #define G_MAX_VALUE PWM_MAX_VALUE
 #define B_MAX_VALUE PWM_MAX_VALUE
-#define W_MAX_VALUE PWM_MAX_VALUE
 
 // Animation rate settings
 #define ANIM_RATE_INITIAL_VALUE	32
@@ -94,13 +93,9 @@
 #define BRIGHTNESS_MAX_VALUE		255 // Don't change!
 #define BRIGHTNESS_MIN_VALUE		16
 
-// Initial state
-#define INITIAL_STATE	STATE_COLOR
-//#define INITIAL_STATE	set_power_off_bit(STATE_COLOR) // Use this to sleep after power on
-
 // Color IR key codes and their RGB values
 #define COLORS_COUNT 16
-PROGMEM static const byte colors[COLORS_COUNT][4] = {{ IR_KEY_COLOR_WHITE,		0x00,				0x00,				0x00 },
+PROGMEM static const byte colors[COLORS_COUNT][4] = {{ IR_KEY_COLOR_WHITE,		R_MAX_VALUE,		G_MAX_VALUE,		B_MAX_VALUE },
 	
 													 { IR_KEY_COLOR_RED,		R_MAX_VALUE,		0x00,				0x00 },
 													 { IR_KEY_COLOR_RED_1,		R_MAX_VALUE,		G_MAX_VALUE / 8,	0x00 },
@@ -122,15 +117,9 @@ PROGMEM static const byte colors[COLORS_COUNT][4] = {{ IR_KEY_COLOR_WHITE,		0x00
 
 /* ======================== I/O settings ========================== */
 
-/************************************************************************/
-/* WARNING: if you change RGB or RGBW pin orders, you must modify       */
-/* pwm_init_rgb() or pwm_init_rgbw() macros in led_pwm.h too            */
-/************************************************************************/
-
-#define RED_PIN			PB1
-#define GREEN_PIN		PB2
-#define BLUE_PIN		PB0
-#define WHITE_PIN		PB3
-#define IR_SENSOR_PIN	PB4
+#define RED_PIN			PB1	// Output pin for RED channel
+#define GREEN_PIN		PB2	// Output pin for GREEN channel
+#define BLUE_PIN		PB0	// Output pin for BLUE channel
+#define IR_SENSOR_PIN	PB4	// IR sensor pin
 
 #endif /* COMMON_H_ */

@@ -7,8 +7,8 @@
  * Poll ir_has_new_command(), it will return 1 when the next command is received
  * Call ir_get_received_command() and process the command
  *
+ * Created: 06.09.2018 17:58:35
  *  Author: SinuX
- *  License: CC BY-NC-SA
  */ 
 
 #include "common.h"

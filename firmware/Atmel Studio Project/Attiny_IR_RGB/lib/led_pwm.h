@@ -6,8 +6,8 @@
  * Call pwm_init_rgb() or pwm_init_rgbw() once after start
  * Poll pwm_rgb(), pwm_rgb_fast(), pwm_rgbw() or pwm_rgbw_fast()
  *
+ * Created: 02.09.2018 23:10:17
  *  Author: SinuX
- *  License: CC BY-NC-SA
  */ 
 
 #ifndef LED_PWM_H_
@@ -16,8 +16,8 @@
 #include "common.h"
 
 // Some macros and definitions
-#define pwm_init_rgb() DDRB |= (1 << BLUE_PIN) | (1 << RED_PIN) | (1 << GREEN_PIN)
-#define pwm_init_rgbw() DDRB |= (1 << BLUE_PIN) | (1 << RED_PIN) | (1 << GREEN_PIN) | (1 << WHITE_PIN)
+#define pwm_init_rgb() DDRB |= (1 << RED_PIN) | (1 << GREEN_PIN) | (1 << BLUE_PIN)
+#define pwm_init_rgbw() DDRB |= (1 << RED_PIN) | (1 << GREEN_PIN) | (1 << BLUE_PIN) | (1 << WHITE_PIN)
 
 /**
  * Software PWM for RGB
@@ -35,7 +35,7 @@ static inline void pwm_rgb(byte r_value, byte g_value, byte b_value) {
 }
 
 /**
- * Faster RGB version (weighs less, but flickers)
+ * Faster RGB version with error
  */
 static inline void pwm_rgb_fast(byte r_value, byte g_value, byte b_value) {
 	output_low(RED_PIN);
@@ -68,7 +68,7 @@ static inline void pwm_rgbw(byte r_value, byte g_value, byte b_value, byte w_val
 }
 
 /**
- * Faster RGBW version (weighs less, but flickers)
+ * Faster RGBW version with error
  */
 static inline void pwm_rgbw_fast(byte r_value, byte g_value, byte b_value, byte w_value) {
 	output_low(RED_PIN);

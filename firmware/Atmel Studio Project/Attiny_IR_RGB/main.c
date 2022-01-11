@@ -1,16 +1,13 @@
 /**
  * Chip type: Attiny13
  * Clock frequency: 4.8MHz without divider
- * Flash command: avrdude -p t13 -c avrisp -b 19200 -u -Uflash:w:Attiny_IR_RGBW.hex:a -Ulfuse:w:0x71:m -Uhfuse:w:0xFD:m
-* Wiring:
+ * Flash command: avrdude -p t13 -c avrisp -b 19200 -u -Uflash:w:Attiny_IR_RGB.hex:a -Ulfuse:w:0x71:m -Uhfuse:w:0xFF:m
  *                       +--------+
  *        [        (PB5) |1*     8| (VCC)  Power ]
- *        [ WHITE  (PB3) |2      7| (PB2)  GREEN ]
- *        [ VS1838 (PB4) |3      6| (PB1)    RED ]
- *        [ Ground (GND) |4      5| (PB0)   BLUE ]
+ *        [        (PB3) |2      7| (PB2)   BLUE ]
+ *        [ VS1838 (PB4) |3      6| (PB1)  GREEN ]
+ *        [ Ground (GND) |4      5| (PB0)    RED ]
  *                       +--------+
- *  Author: SinuX
- *  License: CC BY-NC-SA
  */
 
 #define F_CPU 4800000UL
@@ -24,11 +21,11 @@
 int main(void) {
 	// Set up
 	power_off_init();
-	pwm_init_rgbw();
+	pwm_init_rgb();
 	ir_init();
 	
-	// Set initial state
-	byte current_state = INITIAL_STATE;
+	// Initial state - STATE_COLOR with power off bit
+	byte current_state = STATE_COLOR | 0x80;
 	
 	// Animation and brightness parameters
 	byte anim_rate = ANIM_RATE_INITIAL_VALUE;
@@ -78,7 +75,6 @@ int main(void) {
 			// Change animation modes
 			if (command == IR_KEY_ANIM_RAINBOW) {
 				current_state = STATE_RAINBOW_ANIMATION;
-				w_current_value = 0;
 				continue;
 			}
 			if (command == IR_KEY_ANIM_JUMP) {
@@ -119,7 +115,7 @@ int main(void) {
 		}
 		
 		// Do PWM
-		pwm_rgbw(r_current_value, g_current_value, b_current_value, w_current_value);
+		pwm_rgb(r_current_value, g_current_value, b_current_value);
 
 	}
 	
